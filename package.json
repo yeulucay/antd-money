@@ -13,10 +13,7 @@
     "format": "prettier --write src"
   },
   "keywords": [],
-  "author": {
-    "name": "Yunus Emre Ulucay",
-    "email": "ye.ulucay@gmail.com"
-  },
+  "author": "Yunus Emre Ulucay <ye.ulucay@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.12.9",
