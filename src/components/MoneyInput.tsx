@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input } from "antd";
 
 interface MoneyInputProps {
+	style: any
 	/**
 	 * Currency sign as string. e.g  $, £ ...
 	 * or currency codes TRY, USD ...
@@ -80,7 +81,7 @@ const MoneyInput: React.FC<MoneyInputProps> = (props: MoneyInputProps) => {
 	return (
 		<Input
 			className={"money-input-field"}
-			style={{ textAlign: 'right' }}
+			style={{...props.style, textAlign: 'right' }}
 			value={value}
 			placeholder={getPlaceholder()}
 			onChange={(e) => { inputChanged(e.target.value) }} />
