@@ -9,6 +9,7 @@ React money/currency input using ant design.
     prefix={"$"} 
     commaSeperator={true} 
     onChange={inputChanged} 
+    defaultValue={12.50}
 />
 ```
 
@@ -17,7 +18,9 @@ React money/currency input using ant design.
 - **commaSeperator:** A boolean flag. If true, comma is used as decimal seperator and point is used as thousand seperator.
 If false or undefined, point is used as decimal seperator and comma is used as thousand seperator.
 - **onChange:** When value is changed, onChange is called with numeric value of the input
-e.g  **$1,234.56**  returns within the event handler as **1234.56**
+e.g.  **$1,234.56**  returns within the event handler as **1234.56**
+- **defaultValue** Default value of the input.
+e.g.  12.50 or 20.3 etc.
 
 https://github.com/yeulucay/antd-money
 
