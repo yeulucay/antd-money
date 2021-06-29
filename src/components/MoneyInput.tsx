@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "antd";
 
 interface MoneyInputProps {
@@ -18,6 +18,11 @@ interface MoneyInputProps {
 	 * e.g  $1,234.56 returns within the event handler as 1234.56 
 	 */
 	onChange?: Function
+	/**
+     * Default value of the input
+     * e.g. 1234.50 or 10.5 
+     */
+	 defaultValue?: number
 }
 
 const MoneyInput: React.FC<MoneyInputProps> = (props: MoneyInputProps) => {
@@ -25,12 +30,19 @@ const MoneyInput: React.FC<MoneyInputProps> = (props: MoneyInputProps) => {
 	const pad = "000";
 	const [value, setValue] = useState("");
 
+	useEffect(() => {
+		if(props.defaultValue) {
+			inputChanged(props.defaultValue.toFixed(2).toString());
+		}
+	},[props.defaultValue]);
+
 	const getPlaceholder = () => {
 		const ds = props.commaSeperator ? "," : "."; // decimal seperator
 		return (props.prefix || "") + `0${ds}00`;
 	}
 
 	const inputChanged = (val: string) => {
+
 		var reg = new RegExp(/^\d+$/);
 		const ds = props.commaSeperator ? "," : "."; // decimal seperator
 		const ts = props.commaSeperator ? "." : ","; // decimal seperator
@@ -56,7 +68,7 @@ const MoneyInput: React.FC<MoneyInputProps> = (props: MoneyInputProps) => {
 
 			if (props.onChange) {
 				const n = Number.parseFloat(`${str}.${dec}`);
-				props.onChange(n);
+				props.onChange(n.toFixed(2));
 			}
 
 			var fStr = "" // formatted str

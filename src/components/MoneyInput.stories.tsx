@@ -4,4 +4,14 @@ import "antd/dist/antd.css";
 
 export default { title: 'antd-money' }
 
-export const basic = () => <MoneyInput style={{width:200}} prefix={"$"} />
+export const basic = () => {
+
+  const valChanged = (val:any) => {
+    console.log("ON_CHANGE:", val)
+  }
+
+  return (
+    <MoneyInput style={{width:200}} prefix={"$"} defaultValue={12.45} onChange={valChanged} />
+  )
+}
+
