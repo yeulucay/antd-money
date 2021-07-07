@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Input } from "antd";
 
 interface MoneyInputProps {
-	style: any
+	style?: any
 	/**
 	 * Currency sign as string. e.g  $, £ ...
 	 * or currency codes TRY, USD ...

@@ -1,6 +1,6 @@
 {
   "name": "antd-money",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "React money input using ant design",
   "main": "build/index.js",
   "module": "build/index.es.js",
