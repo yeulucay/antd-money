@@ -23,6 +23,11 @@ interface MoneyInputProps {
      * e.g. 1234.50 or 10.5 
      */
 	 defaultValue?: number
+	 
+	 /**
+	 *Size: Push prop to wrapped antd component
+	 */
+	 size?: "small" | "middle" | "small"
 }
 
 const MoneyInput: React.FC<MoneyInputProps> = (props: MoneyInputProps) => {
@@ -94,6 +99,7 @@ const MoneyInput: React.FC<MoneyInputProps> = (props: MoneyInputProps) => {
 		<Input
 			className={"money-input-field"}
 			style={{...props.style, textAlign: 'right' }}
+			size={props.size || 'middle'}
 			value={value}
 			placeholder={getPlaceholder()}
 			onChange={(e) => { inputChanged(e.target.value) }} />
